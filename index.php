@@ -64,33 +64,6 @@
     <div class="container-fluid">
       <div class="row">
       
-        <!-- 
-        <div class="col-sm-3 col-md-2 sidebar">
-          <ul class="nav nav-sidebar">
-          <h4>Top Destinations</h4>
-            <li class="active"><a href="#">Overview</a></li>
-            <li><a class="loadHtml" href="testReport.html">Reports</a></li>
-            <li><a href="#">Analytics</a></li>
-            <li><a href="#">Export</a></li>
-          </ul>
-          <ul class="nav nav-sidebar">
-          <h4>Family Destinations</h4>
-            <li><a href="">Nav item</a></li>
-            <li><a href="">Nav item again</a></li>
-            <li><a href="">One more nav</a></li>
-            <li><a href="">Another nav item</a></li>
-            <li><a href="">More navigation</a></li>
-          </ul>
-          <ul class="nav nav-sidebar">
-          <h4>Great Deals</h4>
-            <li><a href="">Nav item again</a></li>
-            <li><a href="">One more nav</a></li>
-            <li><a href="">Another nav item</a></li>
-          </ul>
-        </div> <!--/sidebar-->
-        -->
-        
-        
         <div class="col-sm-9 col-md-9  main"> <!--/col-sm-offset-3 col-md-offset-2-->
           <h1 class="page-header">Landmarks</h1>
 
