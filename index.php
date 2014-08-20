@@ -15,8 +15,7 @@
 
     <!-- Custom styles for this template -->
     <link href="dashboard.css" rel="stylesheet">
-    <link href="blog.css" rel="stylesheet">
-
+    
     <!-- Just for debugging purposes. Don't actually copy this line! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
 
@@ -31,7 +30,13 @@
 
     <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="nav blog-masthead">
-        <h4>Travel.com</h4>
+          <ul class = "nav navbar-nav navbar-right">
+          <li><a href = "#">join</a></li>
+          <span class="divider"></span>
+          <li><a href = "#myModal" data-toggle="modal"> login </a></li>
+          <span class="divider"></span>
+          <li><a href = "#">share</a></li>
+          </ul>          
       </div> 
 
     
@@ -51,7 +56,6 @@
             <li><a href="#">Hotel</a></li>
             <li><a href="#">Restaurant</a></li>
             <li><a href="#">My Itins</a></li>
-            <li><a href="#">About</a></li> 
           </ul>
           <form class="navbar-form navbar-right" method="post" >
             <input type="text" name="cityname" class="form-control" value= "" placeholder="Search...">
@@ -59,61 +63,57 @@
           </form>
         </div>
       </div>
-    </div>
+    </div>          
+            
+          
 
     <div class="container-fluid">
       <div class="row">
-      
+        
         <div class="col-sm-9 col-md-9  main"> <!--/col-sm-offset-3 col-md-offset-2-->
-          <h1 class="page-header">Landmarks</h1>
+          <h1 class="page-header">Landmark</h1>
+
 
           <div class="row placeholders">
 
-		    <div id="image-container">
-              <!-- Carousel
-              ================================================== -->
-              <div id="myCarousel" class="carousel slide" data-ride="carousel">
-			  <!-- Indicators -->
-			  <ol class="carousel-indicators">
-				<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-				<li data-target="#myCarousel" data-slide-to="1"></li>
-				<li data-target="#myCarousel" data-slide-to="2"></li>
-			  </ol>
-			  <div class="carousel-inner">
-				<!--<div class="item active">
-				  <img src="image/beijing forbidden city4552039736_af150ce623_b.jpg" alt="First slide">
-				  <div class="container">
-					<div class="carousel-caption">
-				    </div>
-				  </div>
-				</div>
-				<div class="item">
-				  <img src="image/beijing great wall5046899272_ae0798418f_b.jpg" alt="Second slide">
-				  <div class="container">
-					<div class="carousel-caption">
-				    </div>				  
-				  </div>
-				</div>
-				<div class="item">
-				  <img src="image/beijing national opera house.jpg" alt="Third slide">
-				  <div class="container">
-					<div class="carousel-caption">
-					</div>
-				  </div>
-				</div> -->
-			  <?php
-				  include("getPhoto.php");
-			   ?>			 
-			 </div>
-			  <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
-			  <a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+			<input type="hidden" id="alignment" value="" />
+			<div class="alignment" data-toggle="buttons-checkbox">
+				<button type="button" class="btn btn-default active">Landmark</button>
+				<button type="button" class="btn btn-default">Museum</button>
+				<button type="button" class="btn btn-default">Park</button>
+				<button type="button" class="btn btn-default">Hotel</button>
+				<button type="button" class="btn btn-default">Restaurant</button>
+				You have selected: <strong></strong>   
+				<div id="thanks"> </div>
 			</div>
-			<!-- /.carousel -->		    
-			  <?php
-				  include("getPOI.php");
-			   ?>
-		    </div><!-- /. img container -->
-           </div><!-- /. row placeholders -->
+
+		    <div id="image-container" >    
+				  <!-- Carousel ================== -->
+
+				  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+				  <!-- Indicators -->
+				  <ol class="carousel-indicators">
+					<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+					<li data-target="#myCarousel" data-slide-to="1"></li>
+					<li data-target="#myCarousel" data-slide-to="2"></li>
+				  </ol>
+				  <div class="carousel-inner">
+				  <?php
+					  include("getPhoto.php");
+				   ?>			 
+				 </div>
+				  <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+				  <a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+				</div>	<!-- /.carousel -->	
+			  	
+				<!--?php include("getPOI.php"); ? -->	    
+				
+			    <?php include("getSubcity.php"); ?>	  
+			</div><!-- /. img container -->
+         </div> <!-- /. row placeholders -->
+         
+         
+
 
           <h2 class="sub-header">Destination details</h2>
           <div id="destination" class="col-xs-6 col-sm-6">
@@ -159,13 +159,52 @@
       <p>TravelMining: find the best destinations for you!</p>
       <p><a href="#">Back to top</a></p>
     </div>
+    
+
+	<!-- Modal -->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+		<div class="modal-content">
+		
+		  <div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+			<h4 class="modal-title" id="myModalLabel">Log in to Travel.com</h4>
+		  </div>		  
+		  
+
+		   <div class="modal-body">
+            <form class="contact">
+              <fieldset>               
+				<ul class="nav nav-list">
+					<li class="nav-header ">Email</li>
+					<li><input class="input-xlarge " value="" type="text" name="Email"></li> 
+					<li class="nav-header">Password</li>
+					<li><input class="input-xlarge " value="" type="password" name="Password"></li><p style="color: 'red'"></p>
+				</ul>
+              </fieldset>
+
+				<button type="button" class="btn btn-primary" id="loginsubmit" data-dismiss="modal">login</button>			
+				<div class="checkbox">
+					<input id="remember" type="checkbox" />
+					<label for="remember">Remember me on this computer</label>
+				</div>	
+			</form>
+        </div>
+
+		  <!--div class="modal-footer">
+			<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			<button type="button" class="btn btn-primary">Save changes</button>
+		  </div-->
+		</div>
+	  </div>
+	</div>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script type="text/javascript" src="script.js"></script>
     <script src="bootstrap.min.js"></script>
     <script src="docs.min.js"></script>
+    <script type="text/javascript" src="script.js"></script >    
   </body>
 </html>
